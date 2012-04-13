@@ -13,6 +13,7 @@ public class Console implements UpdateListener {
 	@Override
 	public void update(EventBean[] newEvents, EventBean[] oldEvents) {
 		// TODO Auto-generated method stub
+		logger.debug("new event update listener");
 		if (newEvents == null) {
 			logger.debug("newEvents is null");
 			return;
