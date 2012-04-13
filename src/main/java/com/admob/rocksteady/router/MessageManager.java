@@ -29,9 +29,6 @@ import com.admob.rocksteady.common.Startable; // import
 // com.admob.rocksteady.event.Message;
 import com.admob.rocksteady.event.*;
 import com.admob.rocksteady.router.cep.ComplexEventManager;
-import com.box.rocksteady.event.GenericAlert;
-import com.box.rocksteady.event.Nagios;
-
 import com.rabbitmq.client.*;
 
 /*
@@ -131,19 +128,12 @@ public class MessageManager implements Service, Startable {
 					for (String m : metrics) {
 						if (key.equals("Nagios")) {
 							ObjectMapper mapper = new ObjectMapper();
-					//		Nagios obj = new Nagios(m);
-							logger.debug("Data is " + m);
-							try {
-								event= mapper.readValue(m, Nagios.class);
-								logger.debug("metric processed: " + m);
-							} catch (java.io.IOException e) {
-								// Print out the exception that occurred
-								event = new Metric(m);
-								logger.warn("metric not recognized: " + m);
-							}
+							Nagios nagios = mapper.readValue(m, Nagios.class);
+							event = nagios;
 						} else {
 							event = new Metric(m);
 						}
+
 						try {
 							ComplexEventManager.getInstance().sendEvent(event);
 						} catch (Exception e) {
