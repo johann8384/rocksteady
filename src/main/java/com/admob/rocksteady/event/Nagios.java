@@ -34,6 +34,22 @@ public class Nagios {
 				// ComplexEventManager.getInstance().sendEvent(obj);
 	}
 
+	public Nagios() {
+	}
+
+	@Override
+	public String toString() {
+		return "Nagios [type=" + type + ", hostname=" + hostname
+				+ ", hostaddress=" + hostaddress + ", comments=" + comments
+				+ ", datetime=" + datetime + ", hostservicescritical="
+				+ hostservicescritical + ", hoststate=" + hoststate
+				+ ", hostoutput=" + hostoutput + ", hostsup=" + hostsup
+				+ ", hostsdown=" + hostsdown + ", servicedesc=" + servicedesc
+				+ ", servicestate=" + servicestate + ", serviceoutput="
+				+ serviceoutput + ", servicesok=" + servicesok
+				+ ", servicescritical=" + servicescritical + "]";
+	}
+
 	public String getType() {
 		return type;
 	}
