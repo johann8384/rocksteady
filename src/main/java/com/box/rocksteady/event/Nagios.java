@@ -6,7 +6,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.admob.rocksteady.router.cep.ComplexEventManager;
+//import com.admob.rocksteady.router.cep.ComplexEventManager;
 
 /**
  * POJO class to take on metrics
@@ -44,7 +44,7 @@ public class Nagios {
 
 		ObjectMapper mapper = new ObjectMapper();
 		GenericAlert obj = new GenericAlert();
-
+		logger.debug("Data is " + data);
 		try {
 			obj = mapper.readValue(data, GenericAlert.class);
 			logger.debug("metric processed: " + data);
