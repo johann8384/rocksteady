@@ -231,6 +231,7 @@ public class ComplexEventManager implements Service, Startable {
    */
   public void setStatements(StatementBean... statementBeans) {
     for (StatementBean statementBean : statementBeans) {
+    	logger.debug(statementBean.toString());
       addStatement(statementBean);
     }
   }
