@@ -18,7 +18,7 @@ public class GenericAlert {
 	public String servicestate;
 	public String serviceoutput;
 	public Long servicesok;
-	public Long servicecritical;
+	public Long servicescritical;
 
 	public GenericAlert() {
 

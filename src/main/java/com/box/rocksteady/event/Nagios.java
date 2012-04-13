@@ -15,8 +15,29 @@ import com.admob.rocksteady.router.cep.ComplexEventManager;
 public class Nagios {
 	private static final Logger logger = LoggerFactory.getLogger(Nagios.class);
 
-	// HOST "$NOTIFICATIONTYPE$" "$HOSTNAME$" "$HOSTSTATE$" "$HOSTADDRESS$" "$HOSTOUTPUT$" "$NOTIFICATIONCOMMENT$" "$LONGDATETIME$"
-	// SERVICE "$NOTIFICATIONTYPE$" "$HOSTNAME$" "$SERVICEDESC$" "$SERVICESTATE$" "$HOSTADDRESS$" "$SERVICEOUTPUT$" "$NOTIFICATIONCOMMENT$" "$LONGDATETIME$"
+	// HOST "$NOTIFICATIONTYPE$" "$HOSTNAME$" "$HOSTSTATE$" "$HOSTADDRESS$"
+	// "$HOSTOUTPUT$" "$NOTIFICATIONCOMMENT$" "$LONGDATETIME$"
+	// SERVICE "$NOTIFICATIONTYPE$" "$HOSTNAME$" "$SERVICEDESC$"
+	// "$SERVICESTATE$" "$HOSTADDRESS$" "$SERVICEOUTPUT$"
+	// "$NOTIFICATIONCOMMENT$" "$LONGDATETIME$"
+
+	public String type;
+	public String hostname;
+	public String hostaddress;
+	public String comments;
+	public String datetime;
+	public Long hostservicescritical;
+
+	public String hoststate;
+	public String hostoutput;
+	public Long hostsup;
+	public Long hostsdown;
+
+	public String servicedesc;
+	public String servicestate;
+	public String serviceoutput;
+	public Long servicesok;
+	public Long servicescritical;
 
 	// Instantiate metric object with a piece of graphite metric
 	public Nagios(String data) {
@@ -33,6 +54,24 @@ public class Nagios {
 			// System.out.printf("IO Exception %s\n", e.getMessage());
 		}
 
-		ComplexEventManager.getInstance().sendEvent(obj);
+		this.type = obj.type;
+		this.hostname = obj.hostname;
+		this.hostaddress = obj.hostaddress;
+		this.comments = obj.comments;
+		this.datetime = obj.datetime;
+		this.hostservicescritical = obj.hostservicescritical;
+
+		this.hoststate = obj.hoststate;
+		this.hostoutput = obj.hostoutput;
+		this.hostsup = obj.hostsup;
+		this.hostsdown = obj.hostsdown;
+
+		this.servicedesc = obj.servicedesc;
+		this.servicestate = obj.servicestate;
+		this.serviceoutput = obj.serviceoutput;
+		this.servicesok = obj.servicesok;
+		this.servicescritical = obj.servicescritical;
+
+		// ComplexEventManager.getInstance().sendEvent(obj);
 	}
 }

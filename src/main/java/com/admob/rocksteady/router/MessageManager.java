@@ -28,6 +28,7 @@ import com.admob.rocksteady.common.Startable; // import
                                               // com.admob.rocksteady.event.Message;
 import com.admob.rocksteady.event.*;
 import com.admob.rocksteady.router.cep.ComplexEventManager;
+import com.box.rocksteady.event.Nagios;
 
 import com.rabbitmq.client.*;
 
@@ -36,7 +37,6 @@ import com.rabbitmq.client.*;
  * This manager establish connection to mq server
  */
 public class MessageManager implements Service, Startable {
-
   private static final Logger logger = LoggerFactory.getLogger(MessageManager.class);
   private static MessageManager instance;
   @SuppressWarnings("unused")
@@ -107,7 +107,7 @@ public class MessageManager implements Service, Startable {
 
     QueueingConsumer.Delivery delivery;
 
-    Class event;
+    Object event;
 
     // Here's we are going to loop
     while (true) {
@@ -123,11 +123,12 @@ public class MessageManager implements Service, Startable {
           String body = new String(delivery.getBody());
           String[] metrics = body.split("\n");
           for (String m: metrics) {
-              try {
-                  event = Class.forName(delivery.getEnvelope().getRoutingKey());
-                  } catch (ClassNotFoundException e1) {
-                  event = new Metric(m);
-                  }
+              if (delivery.getEnvelope().getRoutingKey().equals("Nagios"))
+              {
+                  event = new Nagios(m);
+                 } else {
+                     event = new Metric(m);
+                 }
             try {
               ComplexEventManager.getInstance().sendEvent(event);
             } catch (Exception e) {
@@ -294,5 +295,4 @@ public class MessageManager implements Service, Startable {
   public void setRetryFlag(boolean retryFlag) {
     this.retryFlag = retryFlag;
   }
-
 }
