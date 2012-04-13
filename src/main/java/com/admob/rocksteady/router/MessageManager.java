@@ -107,6 +107,8 @@ public class MessageManager implements Service, Startable {
 
     QueueingConsumer.Delivery delivery;
 
+    Class event;
+
     // Here's we are going to loop
     while (true) {
       try {
