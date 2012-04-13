@@ -20,7 +20,7 @@ public class Console implements UpdateListener {
 
 		for (EventBean newEvent : newEvents) {
 			try {
-				String msg = newEvent.toString();
+				String msg = newEvent.get("hostservicescritical").toString();
 				logger.info(msg);
 			} catch (Exception e) {
 				logger.error("Error: " + newEvent.toString() + " - "
@@ -30,7 +30,7 @@ public class Console implements UpdateListener {
 		}
 		for (EventBean newEvent : oldEvents) {
 			try {
-				String msg = newEvent.toString();
+				String msg = newEvent.get("hostservicescritical").toString();
 				logger.info(msg);
 			} catch (Exception e) {
 				logger.error("Error: " + newEvent.toString() + " - "
