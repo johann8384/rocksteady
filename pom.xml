@@ -21,6 +21,11 @@
 			<url>http://repository.springsource.com/maven/bundles/external</url>
 		</repository>
 		<repository>
+			<id>jsendnsca</id>
+			<name>JSend NSCA Google Code Maven Repository</name>
+			<url>dav:https://jsendnsca.googlecode.com/svn/repo/releases</url>
+		</repository>
+		<repository>
 			<id>com.springsource.repository.bundles.milestone</id>
 			<name>SpringSource Enterprise Bundle Repository - External Bundle Milestones</name>
 			<url>http://repository.springsource.com/maven/bundles/milestone</url>
@@ -226,13 +231,13 @@
 			<scope>compile</scope>
 		</dependency>
 
+		<!-- <dependency> <groupId>com.google.code</groupId> <artifactId>jsendnsca</artifactId> 
+			<version>1.3.1</version> <type>jar</type> <scope>system</scope> <systemPath>${basedir}/libs/jsendnsca-core-1.3.1.jar</systemPath> 
+			</dependency> -->
 		<dependency>
-			<groupId>com.google.code</groupId>
-			<artifactId>jsendnsca</artifactId>
+			<groupId>com.googlecode</groupId>
+			<artifactId>jsendnsca-core</artifactId>
 			<version>1.3.1</version>
-			<type>jar</type>
-			<scope>system</scope>
-			<systemPath>${basedir}/libs/jsendnsca-core-1.3.1.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
