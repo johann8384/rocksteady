@@ -124,9 +124,9 @@ public class MessageManager implements Service, Startable {
           String[] metrics = body.split("\n");
           for (String m: metrics) {
               try {
-                  Class event = Class.forName(delivery.getEnvelope().getRoutingKey());
+                  event = Class.forName(delivery.getEnvelope().getRoutingKey());
                   } catch (ClassNotFoundException e1) {
-                  Metric event = new Metric(m);
+                  event = new Metric(m);
                   }
             try {
               ComplexEventManager.getInstance().sendEvent(event);
