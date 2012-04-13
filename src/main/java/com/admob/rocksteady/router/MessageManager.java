@@ -129,6 +129,7 @@ public class MessageManager implements Service, Startable {
 						if (key.equals("Nagios")) {
 							ObjectMapper mapper = new ObjectMapper();
 							Nagios nagios = mapper.readValue(m, Nagios.class);
+							logger.debug(nagios.toString());
 							event = nagios;
 						} else {
 							event = new Metric(m);
