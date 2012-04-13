@@ -117,11 +117,17 @@ public class MessageManager implements Service, Startable {
           // WE HAVE A DELIVERY!!!
           // We going to pass the message to another object and let it handle
           // the parsing.
+
           String body = new String(delivery.getBody());
           String[] metrics = body.split("\n");
           for (String m: metrics) {
+              try {
+                  Class event = Class.forName(delivery.getEnvelope().getRoutingKey());
+                  } catch (ClassNotFoundException e1) {
+                  Metric event = new Metric(m);
+                  }
             try {
-              ComplexEventManager.getInstance().sendEvent(new Metric(m));
+              ComplexEventManager.getInstance().sendEvent(event);
             } catch (Exception e) {
               logger.error("Trouble handling metric: " + m);
             }
