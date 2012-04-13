@@ -466,6 +466,7 @@
 		<!-- Add these two lines to make sure we are encoding with UTF-8 -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven.jar.mainclass>com.admob.rocksteady</maven.jar.mainclass>
 	</properties>
 	<modules>
 	</modules>
