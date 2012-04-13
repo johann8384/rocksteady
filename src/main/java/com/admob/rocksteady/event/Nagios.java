@@ -16,14 +16,14 @@ public class Nagios {
 	public String hostaddress;
 	public Long duration;
 	public String comments;
-	public String datetime;
+	public Long datetime;
 	public Long hostservicescritical;
 
 	public String desc;
 	public String state;
 	public String output;
-	public String critical;
-	public String ok;
+	public Long critical;
+	public Long ok;
 	/*
 	public String hoststate;
 	public String hostoutput;
@@ -84,11 +84,11 @@ public class Nagios {
 		this.comments = comments;
 	}
 
-	public String getDatetime() {
+	public Long getDatetime() {
 		return datetime;
 	}
 
-	public void setDatetime(String datetime) {
+	public void setDatetime(Long datetime) {
 		this.datetime = datetime;
 	}
 
@@ -124,19 +124,19 @@ public class Nagios {
 		this.output = output;
 	}
 
-	public String getCritical() {
+	public Long getCritical() {
 		return critical;
 	}
 
-	public void setCritical(String critical) {
+	public void setCritical(Long critical) {
 		this.critical = critical;
 	}
 
-	public String getOk() {
+	public Long getOk() {
 		return ok;
 	}
 
-	public void setOk(String ok) {
+	public void setOk(Long ok) {
 		this.ok = ok;
 	}
 
