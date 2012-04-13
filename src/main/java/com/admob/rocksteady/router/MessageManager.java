@@ -127,16 +127,18 @@ public class MessageManager implements Service, Startable {
 							.getRoutingKey());
 					logger.debug("Processing Routing Key: " + key);
 					String[] metrics = body.split("\n");
+
 					for (String m : metrics) {
 						if (key.equals("Nagios")) {
 							ObjectMapper mapper = new ObjectMapper();
-							Nagios obj = new Nagios(m);
+					//		Nagios obj = new Nagios(m);
 							logger.debug("Data is " + m);
 							try {
-								obj = mapper.readValue(m, Nagios.class);
+								event= mapper.readValue(m, Nagios.class);
 								logger.debug("metric processed: " + m);
 							} catch (java.io.IOException e) {
 								// Print out the exception that occurred
+								event = new Metric(m);
 								logger.warn("metric not recognized: " + m);
 							}
 						} else {
