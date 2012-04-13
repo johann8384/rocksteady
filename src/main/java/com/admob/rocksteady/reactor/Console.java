@@ -8,7 +8,7 @@ import com.espertech.esper.client.UpdateListener;
 
 public class Console implements UpdateListener {
 	private static final Logger logger = LoggerFactory
-			.getLogger(Alerting.class);
+			.getLogger(Console.class);
 
 	@Override
 	public void update(EventBean[] newEvents, EventBean[] oldEvents) {
@@ -18,7 +18,7 @@ public class Console implements UpdateListener {
 			logger.debug("newEvents is null");
 			return;
 		}
-
+		logger.debug(newEvents.toString());
 		for (EventBean newEvent : newEvents) {
 			try {
 				String msg = newEvent.toString();
