@@ -21,8 +21,8 @@ public class Console implements UpdateListener {
 		logger.debug(newEvents.toString());
 		for (EventBean newEvent : newEvents) {
 			try {
-				String msg = newEvent.toString();
-				logger.info(msg);
+				String servicescritical = newEvent.get("average").toString();
+				logger.info("Average CRITICAL Services: " + servicescritical);
 			} catch (Exception e) {
 				logger.error("Error: " + newEvent.toString() + " - "
 						+ e.getMessage());
