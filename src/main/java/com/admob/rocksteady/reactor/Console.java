@@ -28,17 +28,5 @@ public class Console implements UpdateListener {
 						+ e.getMessage());
 			}
 		}
-
-		for (EventBean newEvent : oldEvents) {
-			try {
-				String msg = newEvent.toString();
-				logger.info(msg);
-			} catch (Exception e) {
-				logger.error("Error: " + newEvent.toString() + " - "
-						+ e.getMessage());
-			}
-
-		}
 	}
-
 }
