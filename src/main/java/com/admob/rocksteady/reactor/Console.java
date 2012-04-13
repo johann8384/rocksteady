@@ -14,19 +14,27 @@ public class Console implements UpdateListener {
 	public void update(EventBean[] newEvents, EventBean[] oldEvents) {
 		// TODO Auto-generated method stub
 		if (newEvents == null) {
+			logger.debug("newEvents is null");
 			return;
 		}
 
-		Integer i = 0;
-
 		for (EventBean newEvent : newEvents) {
-			i++;
 			try {
-				String msg = "";
-				msg += newEvent.toString();
+				String msg = newEvent.toString();
 				logger.info(msg);
 			} catch (Exception e) {
-				logger.error("Error: " + newEvent.toString() + " - " + e.getMessage());
+				logger.error("Error: " + newEvent.toString() + " - "
+						+ e.getMessage());
+			}
+
+		}
+		for (EventBean newEvent : oldEvents) {
+			try {
+				String msg = newEvent.toString();
+				logger.info(msg);
+			} catch (Exception e) {
+				logger.error("Error: " + newEvent.toString() + " - "
+						+ e.getMessage());
 			}
 
 		}
