@@ -21,17 +21,17 @@ public class Console implements UpdateListener {
 
 		for (EventBean newEvent : newEvents) {
 			try {
-				String msg = newEvent.get("hostservicescritical").toString();
+				String msg = newEvent.toString();
 				logger.info(msg);
 			} catch (Exception e) {
 				logger.error("Error: " + newEvent.toString() + " - "
 						+ e.getMessage());
 			}
-
 		}
+
 		for (EventBean newEvent : oldEvents) {
 			try {
-				String msg = newEvent.get("hostservicescritical").toString();
+				String msg = newEvent.toString();
 				logger.info(msg);
 			} catch (Exception e) {
 				logger.error("Error: " + newEvent.toString() + " - "
