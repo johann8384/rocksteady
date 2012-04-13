@@ -251,7 +251,13 @@ public class ComplexEventManager implements Service, Startable {
    * @param event the event object
    */
   public void sendEvent(Object event) {
+	  try {
+	  logger.debug("calling epRuntime sendEvent");
     epServiceProvider.getEPRuntime().sendEvent(event);
+	  } catch (EPException e)
+	  {
+		  logger.error(e.getMessage());
+	  }
   }
 
   /**
