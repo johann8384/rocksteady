@@ -121,9 +121,11 @@ public class MessageManager implements Service, Startable {
           // the parsing.
 
           String body = new String(delivery.getBody());
+          String key = new String(delivery.getEnvelope().getRoutingKey());
+          logger.debug("Processing Routing Key: " + key);
           String[] metrics = body.split("\n");
           for (String m: metrics) {
-              if (delivery.getEnvelope().getRoutingKey().equals("Nagios"))
+              if (key.equals("Nagios"))
               {
                   event = new Nagios(m);
                  } else {
