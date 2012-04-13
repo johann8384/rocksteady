@@ -130,6 +130,12 @@ public class MessageManager implements Service, Startable {
 							ObjectMapper mapper = new ObjectMapper();
 							Nagios nagios = mapper.readValue(m, Nagios.class);
 							logger.debug(nagios.toString());
+							try {
+								logger.debug("sending event");
+								ComplexEventManager.getInstance().sendEvent(nagios);
+							} catch (Exception e) {
+								logger.error("Trouble handling metric: " + m);
+							}
 							event = nagios;
 						} else {
 							event = new Metric(m);
