@@ -43,37 +43,6 @@ public class Nagios {
 
 	// Instantiate metric object with a piece of graphite metric
 	public Nagios(String data) {
-
-		ObjectMapper mapper = new ObjectMapper();
-		GenericAlert obj = new GenericAlert();
-		logger.debug("Data is " + data);
-		try {
-			obj = mapper.readValue(data, GenericAlert.class);
-			logger.debug("metric processed: " + data);
-		} catch (java.io.IOException e) {
-			// Print out the exception that occurred
-			logger.warn("metric not recognized: " + data);
-			// System.out.printf("IO Exception %s\n", e.getMessage());
-		}
-
-		this.type = obj.type;
-		this.hostname = obj.hostname;
-		this.hostaddress = obj.hostaddress;
-		this.comments = obj.comments;
-		this.datetime = obj.datetime;
-		this.hostservicescritical = obj.hostservicescritical;
-
-		this.hoststate = obj.hoststate;
-		this.hostoutput = obj.hostoutput;
-		this.hostsup = obj.hostsup;
-		this.hostsdown = obj.hostsdown;
-
-		this.servicedesc = obj.servicedesc;
-		this.servicestate = obj.servicestate;
-		this.serviceoutput = obj.serviceoutput;
-		this.servicesok = obj.servicesok;
-		this.servicescritical = obj.servicescritical;
-
-		// ComplexEventManager.getInstance().sendEvent(obj);
+				// ComplexEventManager.getInstance().sendEvent(obj);
 	}
 }
