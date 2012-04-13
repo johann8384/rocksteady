@@ -14,10 +14,17 @@ public class Nagios {
 	public String type;
 	public String hostname;
 	public String hostaddress;
+	public Long duration;
 	public String comments;
 	public String datetime;
 	public Long hostservicescritical;
 
+	public String desc;
+	public String state;
+	public String output;
+	public String critical;
+	public String ok;
+	/*
 	public String hoststate;
 	public String hostoutput;
 	public Long hostsup;
@@ -28,26 +35,13 @@ public class Nagios {
 	public String serviceoutput;
 	public Long servicesok;
 	public Long servicescritical;
-
+*/
 	// Instantiate metric object with a piece of graphite metric
 	public Nagios(String data) {
 				// ComplexEventManager.getInstance().sendEvent(obj);
 	}
 
 	public Nagios() {
-	}
-
-	@Override
-	public String toString() {
-		return "Nagios [type=" + type + ", hostname=" + hostname
-				+ ", hostaddress=" + hostaddress + ", comments=" + comments
-				+ ", datetime=" + datetime + ", hostservicescritical="
-				+ hostservicescritical + ", hoststate=" + hoststate
-				+ ", hostoutput=" + hostoutput + ", hostsup=" + hostsup
-				+ ", hostsdown=" + hostsdown + ", servicedesc=" + servicedesc
-				+ ", servicestate=" + servicestate + ", serviceoutput="
-				+ serviceoutput + ", servicesok=" + servicesok
-				+ ", servicescritical=" + servicescritical + "]";
 	}
 
 	public String getType() {
@@ -74,6 +68,14 @@ public class Nagios {
 		this.hostaddress = hostaddress;
 	}
 
+	public Long getDuration() {
+		return duration;
+	}
+
+	public void setDuration(Long duration) {
+		this.duration = duration;
+	}
+
 	public String getComments() {
 		return comments;
 	}
@@ -98,76 +100,54 @@ public class Nagios {
 		this.hostservicescritical = hostservicescritical;
 	}
 
-	public String getHoststate() {
-		return hoststate;
+	public String getDesc() {
+		return desc;
 	}
 
-	public void setHoststate(String hoststate) {
-		this.hoststate = hoststate;
+	public void setDesc(String desc) {
+		this.desc = desc;
 	}
 
-	public String getHostoutput() {
-		return hostoutput;
+	public String getState() {
+		return state;
 	}
 
-	public void setHostoutput(String hostoutput) {
-		this.hostoutput = hostoutput;
+	public void setState(String state) {
+		this.state = state;
 	}
 
-	public Long getHostsup() {
-		return hostsup;
+	public String getOutput() {
+		return output;
 	}
 
-	public void setHostsup(Long hostsup) {
-		this.hostsup = hostsup;
+	public void setOutput(String output) {
+		this.output = output;
 	}
 
-	public Long getHostsdown() {
-		return hostsdown;
+	public String getCritical() {
+		return critical;
 	}
 
-	public void setHostsdown(Long hostsdown) {
-		this.hostsdown = hostsdown;
+	public void setCritical(String critical) {
+		this.critical = critical;
 	}
 
-	public String getServicedesc() {
-		return servicedesc;
+	public String getOk() {
+		return ok;
 	}
 
-	public void setServicedesc(String servicedesc) {
-		this.servicedesc = servicedesc;
+	public void setOk(String ok) {
+		this.ok = ok;
 	}
 
-	public String getServicestate() {
-		return servicestate;
+	@Override
+	public String toString() {
+		return "Nagios [type=" + type + ", hostname=" + hostname
+				+ ", hostaddress=" + hostaddress + ", duration=" + duration
+				+ ", comments=" + comments + ", datetime=" + datetime
+				+ ", hostservicescritical=" + hostservicescritical + ", desc="
+				+ desc + ", state=" + state + ", output=" + output
+				+ ", critical=" + critical + ", ok=" + ok + "]";
 	}
 
-	public void setServicestate(String servicestate) {
-		this.servicestate = servicestate;
-	}
-
-	public String getServiceoutput() {
-		return serviceoutput;
-	}
-
-	public void setServiceoutput(String serviceoutput) {
-		this.serviceoutput = serviceoutput;
-	}
-
-	public Long getServicesok() {
-		return servicesok;
-	}
-
-	public void setServicesok(Long servicesok) {
-		this.servicesok = servicesok;
-	}
-
-	public Long getServicescritical() {
-		return servicescritical;
-	}
-
-	public void setServicescritical(Long servicescritical) {
-		this.servicescritical = servicescritical;
-	}
-	
 }
